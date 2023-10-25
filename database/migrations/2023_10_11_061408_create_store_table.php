@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id()->comment('編號(主鍵)');
             $table->string('name')->comment('車商名稱');
             $table->string('country')->comment('地區');
-            $table->string('service')->unsigned()->comment('據點數量');
+            $table->string('service')->comment('據點數量');
             $table->string('info')->comment('簡介');
             $table->string('url')->comment('網址');
             $table->timestamps();
