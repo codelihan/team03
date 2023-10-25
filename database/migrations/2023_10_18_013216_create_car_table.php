@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('car', function (Blueprint $table) {
             $table->id()->comment('編號(主鍵)');
-            $table->string("store")->comment('車商');
+            $table->unsignedBigInteger('store_id')->comment('車商');
             $table->string('model')->comment('型號');
             $table->tinyInteger('riding_noise')->unsigned()->comment('騎乘噪音值');
             $table->tinyInteger('idle_noise')->unsigned()->comment("怠速噪音值");
@@ -23,6 +23,9 @@ return new class extends Migration
             $table->tinyInteger('max_rpm')->unsigned()->comment("最大動力轉速");
             $table->double('displacement')->unsigned()->comment("排氣量");
             $table->timestamps();
+
+            // 定義外鍵約束
+            $table->foreign('store_id')->references('id')->on('store');
         });
     }
 
