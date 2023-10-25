@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id()->comment('編號(主鍵)');
             $table->string("store")->comment('車商');
             $table->string('model')->comment('型號');
-            $table->tinyInteger('riding_noise')->unsiged()->comment('騎乘噪音值');
-            $table->tinyInteger('idle_noise')->unsiged()->comment("怠速噪音值");
-            $table->double('max_power')->unsiged()->comment("最大動力");
-            $table->tinyInteger('max_rpm')->unsiged()->comment("最大動力轉速");
-            $table->double('displacement')->unsiged()->comment("排氣量");
+            $table->tinyInteger('riding_noise')->unsigned()->comment('騎乘噪音值');
+            $table->tinyInteger('idle_noise')->unsigned()->comment("怠速噪音值");
+            $table->double('max_power')->unsigned()->comment("最大動力");
+            $table->tinyInteger('max_rpm')->unsigned()->comment("最大動力轉速");
+            $table->double('displacement')->unsigned()->comment("排氣量");
             $table->timestamps();
         });
     }
