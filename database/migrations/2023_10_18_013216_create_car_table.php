@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('car', function (Blueprint $table) {
             //這版本是正常的
             $table->id()->comment('編號(主鍵)');
-            $table->unsignedBigInteger('store_id')->comment('車商');
+            $table->unsignedBigInteger('store_id')->comment('車商(外部建)');
             $table->string('model')->comment('型號');
             $table->tinyInteger('riding_noise')->unsigned()->comment('騎乘噪音值');
             $table->tinyInteger('idle_noise')->unsigned()->comment("怠速噪音值");
