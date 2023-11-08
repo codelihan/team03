@@ -18,7 +18,6 @@ return new class extends Migration
 
             $table->foreignId('store')->comment('車商(外部鍵)');
             $table->foreign('store')->references('id')->on('store')->onDelete('cascade');
-            #test
             $table->string('model')->comment('型號');
             $table->tinyInteger('riding_noise')->unsigned()->comment('騎乘噪音值');
             $table->tinyInteger('idle_noise')->unsigned()->comment("怠速噪音值");
