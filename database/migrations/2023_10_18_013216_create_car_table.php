@@ -26,7 +26,7 @@ return new class extends Migration
             $table->double('displacement')->unsigned()->comment("排氣量");
             $table->timestamps();
 
-            // 定義外鍵約束
+            // 定義外鍵約束，這版本是正常的
             $table->foreign('store_id')->references('id')->on('store');
         });
     }
