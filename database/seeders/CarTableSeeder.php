@@ -44,7 +44,7 @@ class CarTableSeeder extends Seeder
         $updatedAt = $createdAt; // 新記錄的更新日期時間通常等於創建日期時間
 
         DB::table('car')->insert([
-            'store_id' => '1',
+            'store_id' => rand(1, 16),
             'model' => $randomBike['model'],
             'riding_noise' => $randomBike['riding_noise'],
             'idle_noise' => $randomBike['idle_noise'],
