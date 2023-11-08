@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('max_rpm')->comment("最大動力轉速");
             $table->double('displacement')->unsigned()->comment("排氣量");
             $table->timestamps();
-
+            //test
             // 定義外鍵約束
             $table->foreign('store_id')->references('id')->on('store');
         });
