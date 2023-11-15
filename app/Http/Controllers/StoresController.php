@@ -13,6 +13,11 @@ class StoresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // 获取所有商店数据并返回数组形式
+    public function getAllStores() {
+        $stores = Store::all()->toArray();
+        return $stores;
+    }
     public function index()
     {
         //

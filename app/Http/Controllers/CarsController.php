@@ -8,6 +8,11 @@ use App\Models\stores;
 
 class CarsController extends Controller
 {
+    // 获取所有汽车数据并返回数组形式
+    public function getAllCars() {
+        $cars = Car::all()->toArray();
+        return $cars;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -83,4 +88,5 @@ class CarsController extends Controller
     {
         //
     }
+
 }
