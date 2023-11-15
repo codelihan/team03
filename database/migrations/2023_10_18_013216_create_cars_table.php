@@ -16,7 +16,7 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             //這版本是正常的
             $table->id()->comment('編號(主鍵)');
-            $table->unsignedBigInteger('store_id')->comment('車商');
+            $table->unsignedBigInteger('stores')->comment('車商(外部鍵)');
             $table->string('model')->comment('型號');
             $table->tinyInteger('riding_noise')->unsigned()->comment('騎乘噪音值');
             $table->tinyInteger('idle_noise')->unsigned()->comment("怠速噪音值");
@@ -26,7 +26,7 @@ class CreateCarsTable extends Migration
             $table->timestamps();
             //test
             // 定義外鍵約束
-            $table->foreign('store_id')->references('id')->on('store');
+            $table->foreign('stores')->references('id')->on('store');
         });
     }
 
