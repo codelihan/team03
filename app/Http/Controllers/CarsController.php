@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\cars;
+use App\Models\stores;
 
 class CarsController extends Controller
 {
