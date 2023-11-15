@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class stores extends Model
 {
-    use HasFactory;
+protected $fillable=[
+    'id',
+    'name',
+    'country',
+    'service',
+    'info',
+    'url',
+    'created_at',
+    'updated_at',
+];
 }
