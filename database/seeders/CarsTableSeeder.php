@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 
-class CarTableSeeder extends Seeder
+class CarsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -43,7 +43,7 @@ class CarTableSeeder extends Seeder
         $createdAt = Carbon::now()->subDays(rand(1, 365)); // 隨機生成過去一年內的日期時間
         $updatedAt = $createdAt; // 新記錄的更新日期時間通常等於創建日期時間
 
-        DB::table('car')->insert([
+        DB::table('cars')->insert([
             'store_id' => rand(1, 16),
             'model' => $randomBike['model'],
             'riding_noise' => $randomBike['riding_noise'],
@@ -89,6 +89,6 @@ public function generateRandomBike(&$models, &$usedModels)
     return $bikeInfo;
 }
 
-    
-    
+
+
 }

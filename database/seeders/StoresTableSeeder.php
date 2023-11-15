@@ -7,7 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class StoreTableSeeder extends Seeder
+class StoresTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -100,7 +100,7 @@ class StoreTableSeeder extends Seeder
             $info = $this->generateRandomInfo();
             $url = $this->generateRandomUrl();
             $random_datetime = Carbon::now()->subMinutes(rand(1, 55));
-            DB::table(table:'store')->insert([
+            DB::table(table:'stores')->insert([
                 'name' => $name,
                 'country' => $country,
                 'service' => $service,
