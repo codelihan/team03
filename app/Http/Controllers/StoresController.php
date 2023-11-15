@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\cars;
-use App\Models\stores;
+use App\Models\car;
+use App\Models\store;
 
 class StoresController extends Controller
 {
@@ -14,13 +14,9 @@ class StoresController extends Controller
      * @return \Illuminate\Http\Response
      */
     // 获取所有商店数据并返回数组形式
-    public function getAllStores() {
-        $stores = Store::all()->toArray();
-        return $stores;
-    }
     public function index()
     {
-        //
+        return store::all()->toArray();
     }
 
     /**

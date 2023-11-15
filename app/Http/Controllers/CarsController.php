@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\car;
 use Illuminate\Http\Request;
-use App\Models\cars;
-use App\Models\stores;
+use App\Models\store;
 
 class CarsController extends Controller
 {
     // 获取所有汽车数据并返回数组形式
-    public function getAllCars() {
-        $cars = Car::all()->toArray();
-        return $cars;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +16,8 @@ class CarsController extends Controller
      */
     public function index()
     {
-        //
+        // 获取所有汽车数据并返回数组形式
+        return car::all()->toArray();
     }
 
     /**
