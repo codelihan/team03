@@ -8,6 +8,7 @@ use App\Models\store;
 
 class CarsController extends Controller
 {
+    //殘體字
     // 获取所有汽车数据并返回数组形式
     /**
      * Display a listing of the resource.
