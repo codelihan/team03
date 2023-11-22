@@ -13,7 +13,7 @@ class CreateStoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('stores', function (Blueprint $table) {
+        Schema::create('stores', function (Blueprint $table) {  //創建資料表
             $table->id()->comment('編號(主鍵)');
             $table->string('name')->comment('車商名稱');
             $table->string('country')->comment('地區');
