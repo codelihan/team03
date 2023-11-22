@@ -16,7 +16,8 @@ class StoresController extends Controller
     // 获取所有商店数据并返回数组形式
     public function index()
     {
-        return store::all()->toArray();
+        $s=store::all()->toArray();
+        return view('stores.index')->with('stores',$s);
     }
 
     /**
