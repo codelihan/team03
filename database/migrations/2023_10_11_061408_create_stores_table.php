@@ -23,7 +23,7 @@ class CreateStoresTable extends Migration
             $table->timestamps();
         });
     }
-
+    //test
     /**
      * Reverse the migrations.
      *
