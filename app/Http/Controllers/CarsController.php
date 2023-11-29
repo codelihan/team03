@@ -52,7 +52,7 @@ class CarsController extends Controller
      */
     public function show($id)
     {
-        //
+        return car::findOrFail($id)->toArray();
     }
 
     /**
@@ -63,7 +63,7 @@ class CarsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return car::findOrFail($id)->toArray();
     }
 
     /**

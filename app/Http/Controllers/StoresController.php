@@ -49,7 +49,7 @@ class StoresController extends Controller
      */
     public function show($id)
     {
-        //
+        return store::findOrFail($id)->toArray();
     }
 
     /**
@@ -60,7 +60,7 @@ class StoresController extends Controller
      */
     public function edit($id)
     {
-        //
+        return store::findOrFail($id)->toArray();
     }
 
     /**
