@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CarsController;
+use App\Http\Controllers\StoresController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\CarsController::class, 'index'])->name('Cars.index');
+Route::get('/', [CarsController::class, 'index'])->name('Cars.index');
 
-Route::get('/cars', [\App\Http\Controllers\CarsController::class, 'index'])->name('Cars.index');
-Route::get('/stores', [\App\Http\Controllers\StoresController::class, 'index'])->name('Stores.index');
+Route::get('/cars', [CarsController::class, 'index'])->name('Cars.index');
+
+Route::get('/stores', [StoresController::class, 'index'])->name('Stores.index');
