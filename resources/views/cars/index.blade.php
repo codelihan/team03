@@ -3,20 +3,39 @@
 <head>
     <title>列出所有車種</title>
 </head>
+
 <body>
 <h1>列出所有車種</h1>
 
-@for($i=0; $i<count($cars); $i++)
-    {{ $cars[$i]['id'] }}<br/>
-    {{ $cars[$i]['stores'] }}<br/>
-    {{ $cars[$i]['model'] }}<br/>
-    {{ $cars[$i]['riding_noise'] }}<br/>
-    {{ $cars[$i]['idle_noise'] }}<br/>
-    {{ $cars[$i]['max_power'] }}<br/>
-    {{ $cars[$i]['max_rpm'] }}<br/>
-    {{ $cars[$i]['displacement'] }}<br/>
-@endfor
+<table>
+    <tr>
+        <th>編號</th>
+        <th>車商</th>
+        <th>型號</th>
+        <th>騎乘噪音值</th>
+        <th>怠速噪音值</th>
+        <th>最大馬力</th>
+        <th>最大動力轉速</th>
+        <th>排氣量</th>
+        <th>操作1</th>
+        <th>操作2</th>
+        <th>操作3</th>
+    </tr>
+    @for($i=0; $i<count($cars); $i++)
+        <tr>
+            <td>{{ $cars[$i]['id'] }}</td>
+            <td>{{ $cars[$i]['stores'] }}</td>
+            <td>{{ $cars[$i]['model'] }}</td>
+            <td>{{ $cars[$i]['riding_noise'] }}</td>
+            <td>{{ $cars[$i]['idle_noise'] }}</td>
+            <td>{{ $cars[$i]['max_power'] }}</td>
+            <td>{{ $cars[$i]['max_rpm'] }}</td>
+            <td>{{ $cars[$i]['displacement'] }}</td>
 
+        </tr>
+    @endfor
+</table>
 
 </body>
+
 </html>
