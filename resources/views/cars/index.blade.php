@@ -1,11 +1,9 @@
-<html>
+@extends('app')
 
-<head>
-    <title>列出所有車種</title>
-</head>
+@section('title', '機車款式網站')
 
-<body>
-<h1>列出所有車種</h1>
+@section('bike_contents')
+<h1>所有車款</h1>
 
 <table>
     <tr>
@@ -31,19 +29,15 @@
             <td>{{ $cars[$i]['max_power'] }}</td>
             <td>{{ $cars[$i]['max_rpm'] }}</td>
             <td>{{ $cars[$i]['displacement'] }}</td>
-            <td><a href="{{ route('cars.show', $cars[$i]['id']) }}">顯示</a></td>
-            <td><a href="{{ route('cars.edit', $cars[$i]['id']) }}">修改</a></td>
+            <td><a href="{{ route('cars.show', ['id'=>$cars[$i]['id']]) }}">顯示</a></td>
+            <td><a href="{{ route('cars.edit', ['id'=>$cars[$i]['id']]) }}">修改</a></td>    
             <td>
                 <form action="{{ route('cars.destroy', $cars[$i]['id']) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button>刪除</button>
                 </form>
-
         </tr>
     @endfor
 </table>
-
-</body>
-
-</html>
+@endsection

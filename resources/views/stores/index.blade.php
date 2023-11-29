@@ -1,11 +1,9 @@
-<html>
+@extends('app')
 
-<head>
-    <title>列出所有車商</title>
-</head>
+@section('title', '機車款式網站')
 
-<body>
-<h1>列出所有車商</h1>
+@section('bike_contents')
+<h1>所有車商</h1>
 
 <table>
     <tr>
@@ -38,7 +36,4 @@
         </tr>
     @endfor
 </table>
-
-</body>
-
-</html>
+@endsection

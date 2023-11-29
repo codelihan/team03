@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title', '機車噪音查詢系統')</title>
+    <title>@yield('title', '機車車款查詢系統')</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -419,7 +419,7 @@
                     @include('header')
                 </div>
                 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                    @yield('nba_contents')
+                    @yield('bike_contents')
                 </div>
             </div>
         </div>
