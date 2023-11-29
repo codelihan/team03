@@ -15,6 +15,9 @@
         <th>據點數量</th>
         <th>簡介</th>
         <th>網址</th>
+        <th>操作1</th>
+        <th>操作2</th>
+        <th>操作3</th>
     </tr>
     @for($i=0; $i<count($stores); $i++)
         <tr>
@@ -24,6 +27,14 @@
             <td>{{ $stores[$i]['service'] }}</td>
             <td>{{ $stores[$i]['info'] }}</td>
             <td><a href="{{ $stores[$i]['url'] }}">{{ $stores[$i]['url'] }}</a></td>
+            <td><a href="{{ route('stores.show', $stores[$i]['id']) }}">顯示</a></td>
+            <td><a href="{{ route('stores.edit', $stores[$i]['id']) }}">修改</a></td>
+            <td>
+                <form action="{{ route('stores.destroy', $stores[$i]['id']) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button>刪除</button>
+                </form>
         </tr>
     @endfor
 </table>

@@ -31,6 +31,14 @@
             <td>{{ $cars[$i]['max_power'] }}</td>
             <td>{{ $cars[$i]['max_rpm'] }}</td>
             <td>{{ $cars[$i]['displacement'] }}</td>
+            <td><a href="{{ route('cars.show', $cars[$i]['id']) }}">顯示</a></td>
+            <td><a href="{{ route('cars.edit', $cars[$i]['id']) }}">修改</a></td>
+            <td>
+                <form action="{{ route('cars.destroy', $cars[$i]['id']) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button>刪除</button>
+                </form>
 
         </tr>
     @endfor
