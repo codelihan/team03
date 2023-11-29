@@ -18,7 +18,9 @@ class CarsController extends Controller
     public function index()
     {
         // 获取所有汽车数据并返回数组形式
-        return car::all()->toArray();
+        $c=car::all()->toArray();
+
+        return view('cars.index')->with('cars',$c);
     }
 
     /**
