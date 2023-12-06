@@ -3,41 +3,42 @@
 @section('title', '機車款式網站')
 
 @section('bike_contents')
-<h1>所有車款</h1>
+    <h1>所有車款</h1>
 
-<table>
-    <tr>
-        <th>編號</th>
-        <th>車商</th>
-        <th>型號</th>
-        <th>騎乘噪音值</th>
-        <th>怠速噪音值</th>
-        <th>最大馬力</th>
-        <th>最大動力轉速</th>
-        <th>排氣量</th>
-        <th>操作1</th>
-        <th>操作2</th>
-        <th>操作3</th>
-    </tr>
-    @for($i=0; $i<count($cars); $i++)
+    <table>
         <tr>
-            <td>{{ $cars[$i]['id'] }}</td>
-            <td>{{ $cars[$i]['stores'] }}</td>
-            <td>{{ $cars[$i]['model'] }}</td>
-            <td>{{ $cars[$i]['riding_noise'] }}</td>
-            <td>{{ $cars[$i]['idle_noise'] }}</td>
-            <td>{{ $cars[$i]['max_power'] }}</td>
-            <td>{{ $cars[$i]['max_rpm'] }}</td>
-            <td>{{ $cars[$i]['displacement'] }}</td>
-            <td><a href="{{ route('cars.show', ['id'=>$cars[$i]['id']]) }}">顯示</a></td>
-            <td><a href="{{ route('cars.edit', ['id'=>$cars[$i]['id']]) }}">修改</a></td>    
-            <td>
-                <form action="{{ route('cars.destroy', $cars[$i]['id']) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button>刪除</button>
-                </form>
+            <th>編號</th>
+            <th>車商</th>
+            <th>型號</th>
+            <th>騎乘噪音值</th>
+            <th>怠速噪音值</th>
+            <th>最大馬力</th>
+            <th>最大動力轉速</th>
+            <th>排氣量</th>
+            <th>操作1</th>
+            <th>操作2</th>
+            <th>操作3</th>
         </tr>
-    @endfor
-</table>
+        @foreach ($cars as $car)
+            <tr>
+                <td>{{ $car['id'] }}</td>
+                <td>{{ $car['stores'] }}</td>
+                <td>{{ $car['model'] }}</td>
+                <td>{{ $car['riding_noise'] }}</td>
+                <td>{{ $car['idle_noise'] }}</td>
+                <td>{{ $car['max_power'] }}</td>
+                <td>{{ $car['max_rpm'] }}</td>
+                <td>{{ $car['displacement'] }}</td>
+                <td><a href="{{ route('cars.show', ['id'=>$car['id']]) }}">顯示</a></td>
+                <td><a href="{{ route('cars.edit', ['id'=>$car['id']]) }}">修改</a></td>
+                <td>
+                    <form action="{{ route('cars.destroy', $car['id']) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button>刪除</button>
+                    </form>
+                </td>
+            </tr>
+        @endforeach
+    </table>
 @endsection
