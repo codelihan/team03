@@ -52,7 +52,9 @@ class CarsController extends Controller
      */
     public function show($id)
     {
-        return car::findOrFail($id)->toArray();
+        $car=car::findOrFail($id);
+
+        return view('cars.show')->with('car',$car);
     }
 
     /**
