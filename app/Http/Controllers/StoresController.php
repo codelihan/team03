@@ -85,6 +85,8 @@ class StoresController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $store=store::findOrFail($id);
+        $store->delete();
+        return redirect('/stores');
     }
 }
