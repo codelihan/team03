@@ -49,7 +49,9 @@ class StoresController extends Controller
      */
     public function show($id)
     {
-        return store::findOrFail($id)->toArray();
+        $store=store::findOrFail($id);
+
+        return view('stores.show')->with('store',$store);
     }
 
     /**
