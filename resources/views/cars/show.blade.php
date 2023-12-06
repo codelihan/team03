@@ -7,7 +7,7 @@
 
     <div>
         <p><strong>編號:</strong> {{ $car['id'] }}</p>
-        <p><strong>車商:</strong> {{ $car['stores'] }}</p>
+        <p><strong>車商:</strong>{{ $car->store->name }}</p>
         <p><strong>型號:</strong> {{ $car['model'] }}</p>
         <p><strong>騎乘噪音值:</strong> {{ $car['riding_noise'] }}</p>
         <p><strong>怠速噪音值:</strong> {{ $car['idle_noise'] }}</p>

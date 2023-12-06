@@ -50,8 +50,8 @@ class StoresController extends Controller
     public function show($id)
     {
         $store=store::findOrFail($id);
-
-        return view('stores.show')->with('store',$store);
+        $cars=$store->cars;
+        return view('stores.show',['store'=>$store,'cars'=>$cars]);
     }
 
     /**

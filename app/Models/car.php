@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class car extends Model
 {
+    use HasFactory;
+
     protected $fillable=[
         'id',
         'store',
@@ -19,4 +21,10 @@ class car extends Model
         'created_at',
         'updated_at'
     ];
+    public function store()
+    {
+        return $this->belongsTo('App\Models\store','store','name');
+
+    }
+
 }
