@@ -90,7 +90,7 @@ class CarsController extends Controller
     {
         $car=car::findOrFail($id);
         $car->delete();
-        return redirect('/cars');
+        return redirect('cars');
     }
 
 }
