@@ -18,7 +18,7 @@ class Store extends Model
     ];
 
     public function cars(){
-        return $this->hasMany('App\Models\Car','id');
+        return $this->hasMany('App\Models\Car','sid');
     }
 
     public function delete()

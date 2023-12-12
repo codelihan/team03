@@ -9,7 +9,7 @@ class Car extends Model
 {
     protected $fillable=[
         'id',
-        'store',
+        'sid',
         'model',
         'riding_noise',
         'idle_noise',
@@ -21,6 +21,6 @@ class Car extends Model
     ];
 
     public function store(){
-        return $this->belongsTo('App\Models\Store','store','id');
+        return $this->belongsTo('App\Models\Store','sid','id');
     }
 }
