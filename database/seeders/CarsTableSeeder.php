@@ -20,22 +20,22 @@ class CarsTableSeeder extends Seeder
     $usedModels = []; // 用來追蹤已經使用過的型號
 
     $models = [
-        'Honda CBR1000RR', 'Yamaha YZF-R1', 'Kawasaki Ninja ZX-10R',
-        'Suzuki GSX-R1000', 'Ducati Panigale V4', 'BMW S1000RR',
+        'CBR1000RR', 'YZF-R1', 'Ninja ZX-10R',
+        'GSX-R1000', 'Panigale V4', 'S1000RR',
         'Triumph Daytona 675', 'Aprilia RSV4', 'MV Agusta F4',
-        'KTM 1290 Super Duke R', 'Harley-Davidson Sportster', 'Indian Scout',
-        'Victory Octane', 'Moto Guzzi V7', 'Royal Enfield Classic 500',
-        'Kymco Agility', 'Vespa Primavera', 'Piaggio MP3', 'SYM Wolf',
-        'Hyosung GT250R', 'Kawasaki Versys-X 300', 'Suzuki V-Strom 650',
-        'Honda CRF250L', 'KTM 390 Duke', 'Yamaha WR250R',
-        'BMW G310GS', 'Triumph Bonneville T100', 'Ducati Scrambler',
-        'Kawasaki Z650', 'Suzuki SV650', 'Yamaha MT-07',
-        'Honda CB500F', 'KTM 690 Duke', 'Harley-Davidson Street 500',
-        'Indian Scout Sixty', 'Victory Gunner', 'Moto Guzzi V9',
-        'Kawasaki Z125 Pro', 'Honda Ruckus', 'Yamaha Zuma',
-        'Vespa GTS', 'Piaggio Fly', 'SYM Jet', 'Hyosung GD250R',
-        'KTM 1290 Super Adventure', 'Suzuki V-Strom 1000', 'BMW R1250GS',
-        'Triumph Tiger 800', 'Ducati Multistrada 950',
+        '1290 Super Duke R', 'Sportster', 'Scout',
+        'Octane', 'V7', 'Classic 500',
+        'Agility', 'Primavera', 'MP3', 'Wolf',
+        'GT250R', 'Versys-X 300', 'V-Strom 650',
+        'CRF250L', '390 Duke', 'WR250R',
+        'G310GS', 'Bonneville T100', 'Scrambler',
+        'Z650', 'SV650', 'MT-07',
+        'CB500F', '690 Duke', 'Street 500',
+        'Scout Sixty', 'Gunner', 'V9',
+        'Z125 Pro', 'Ruckus', 'Zuma',
+        'GTS', 'Fly', 'Jet', 'GD250R',
+        '1290 Super Adventure', 'V-Strom 1000', 'R1250GS',
+        'Tiger 800', 'Multistrada 950'
     ];
 
     while (!empty($models)) {

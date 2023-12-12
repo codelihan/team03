@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Store extends Model
 {
     protected $fillable=[
-        'id',
         'name',
         'country',
         'service',
@@ -17,4 +16,14 @@ class Store extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function cars(){
+        return $this->hasMany('App\Models\Car','id');
+    }
+
+    public function delete()
+    {
+        $this->cars()->delete();
+        return parent::delete();
+    }
 }
