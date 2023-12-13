@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\car;
-use App\Models\store;
+use App\Models\Car;
+use App\Models\Store;
 
 class StoresController extends Controller
 {
@@ -36,10 +36,29 @@ class StoresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
-        //
+        $name = $this->generateRandomName();
+        $country = $this->generateRandomCountry();
+        $service = $this->generateRandomService();
+        $info = $this->generateRandomInfo();
+        $url = $this->generateRandomUrl();
+        $random_datetime = Carbon::now()->subMinutes(rand(1, 55));
+
+        $store = Store::create([
+            'name' => $name,
+            'country' => $country,
+            'service' => $service,
+            'info' => $info,
+            'url' => $url,
+            'created_at' => $random_datetime,
+            'updated_at' => $random_datetime,
+        ]);
+
+        return redirect('stores'); // 返回到 stores 路由
     }
+
 
     /**
      * Display the specified resource.
@@ -62,7 +81,8 @@ class StoresController extends Controller
      */
     public function edit($id)
     {
-        return store::findOrFail($id)->toArray();
+        $store=store::findOrFail($id);
+        return view('stores.edit',['store'=>$store]);
     }
 
     /**

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\car;
+use App\Models\Car;
 use Illuminate\Http\Request;
-use App\Models\store;
+use App\Models\Store;
 
 class CarsController extends Controller
 {
@@ -30,7 +30,8 @@ class CarsController extends Controller
      */
     public function create()
     {
-        //
+        $cars = Car::orderBy('id', 'asc')->pluck('cars.name', 'cars.id');
+        return view('cars.create',['cars'=>$cars,'carSelected'=>null]);
     }
 
     /**
@@ -41,7 +42,25 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sid = $request->input('sid');
+        $model = $request->input('model');
+        $riding_noise = $request->input('riding_noise');
+        $idle_noise = $request->input('idle_noise');
+        $max_power = $request->input('max_power');
+        $max_rpm = $request->input('max_rpm');
+        $displacement = $request->input('displacement');
+
+        $car = Car::create([
+            'sid' => $sid,
+            'model' => $model,
+            'riding_noise' => $riding_noise,
+            'idle_noise' => $idle_noise,
+            'max_power' => $max_power,
+            'max_rpm' => $max_rpm,
+            'displacement' => $displacement,
+        ]);
+
+        return redirect('cars'); // 返回到 cars 路由
     }
 
     /**
@@ -65,7 +84,8 @@ class CarsController extends Controller
      */
     public function edit($id)
     {
-        return car::findOrFail($id)->toArray();
+        $car=car::findOrFail($id);
+        return view('cars.edit',['car'=>$car]);
     }
 
     /**
