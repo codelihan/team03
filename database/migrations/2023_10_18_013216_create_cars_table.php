@@ -14,7 +14,6 @@ class CreateCarsTable extends Migration
     public function up()
     {
         Schema::create('cars', function (Blueprint $table) {
-            //這版本是正常的
             $table->id()->comment('編號(主鍵)');
             $table->unsignedBigInteger('sid')->comment('車商(外部鍵)');
             $table->string('model')->comment('型號');
@@ -24,8 +23,6 @@ class CreateCarsTable extends Migration
             $table->unsignedBigInteger('max_rpm')->comment("最大動力轉速");
             $table->double('displacement')->unsigned()->comment("排氣量");
             $table->timestamps();
-            //test
-            // 定義外鍵約束
             $table->foreign('sid')->references('id')->on('store');
         });
     }
