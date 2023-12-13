@@ -3,8 +3,10 @@
 @section('title', '機車款式網站')
 
 @section('bike_contents')
-    <h1>所有車商</h1>
-
+    <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+        <a href="{{ route('stores.create') }} ">新增車商</a>
+        <a href="{{ route('stores.index') }} ">所有車商</a>
+    </div>
     <table>
         <tr>
             <th>編號</th>

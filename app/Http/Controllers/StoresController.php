@@ -70,7 +70,6 @@ class StoresController extends Controller
     {
         $store=store::findOrFail($id);
         $cars=$store->cars;
-
         return view('stores.show',['store'=>$store,'cars'=>$cars]);
     }
 
