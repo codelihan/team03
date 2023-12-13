@@ -36,6 +36,9 @@ Route::delete('/cars/{id}', [CarsController::class, 'destroy'])->where('id', '[0
 // 新增車輛表單
 Route::get('/cars/create', [CarsController::class, 'create'])->name('cars.create');
 
+// 儲存新車輛資料
+Route::post('/cars/store', [CarsController::class, 'store'])->name('cars.store');
+
 // 顯示所有商店資料
 Route::get('/stores', [StoresController::class, 'index'])->name('stores.index');
 
@@ -53,3 +56,6 @@ Route::delete('/stores/delete/{id}', [StoresController::class, 'destroy'])->wher
 
 // 新增商店表單
 Route::get('/stores/create', [StoresController::class, 'create'])->name('stores.create');
+
+// 儲存新商店資料
+Route::post('/stores/store', [StoresController::class, 'store'])->name('stores.store');
