@@ -30,8 +30,8 @@ class CarsController extends Controller
      */
     public function create()
     {
-        $cars = Car::orderBy('cars.id', 'asc')->pluck('cars.name', 'cars.id');
-        return view('cars.create',['cars'=>$cars,'carSelected'=>null]);
+        $stores = Store::orderBy('stores.id', 'asc')->pluck('stores.name', 'stores.id');
+        return view('cars.create',['stores'=>$stores,'storeSelected'=>null]);
     }
 
     /**
@@ -84,8 +84,10 @@ class CarsController extends Controller
      */
     public function edit($id)
     {
-        $car=car::findOrFail($id);
-        return view('cars.edit',['car'=>$car]);
+        $car = Car::findOrFail($id);
+        $stores = Store::orderBy('stores.id', 'asc')->pluck('stores.name', 'stores.id');
+        $selected_tags = $car->store->id;
+        return view('cars.edit', ['car' =>$car, 'stores' => $stores, 'storeSelected' => $selected_tags]);
     }
 
     /**
@@ -97,7 +99,19 @@ class CarsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $car = Car::findOrFail($id);
+
+        $car->sid = $request->input('sid');
+        $car->model = $request->input('model');
+        $car->riding_noise = $request->input('riding_noise');
+        $car->idle_noise = $request->input('idle_noise');
+        $car->max_power = $request->input('max_power');
+        $car->max_rpm = $request->input('max_rpm');
+        $car->displacement = $request->input('displacement');
+        $car->save();
+
+        return redirect('cars');
+
     }
 
     /**
