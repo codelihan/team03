@@ -39,11 +39,11 @@ class StoresController extends Controller
 
     public function store(Request $request)
     {
-        $name = $this->generateRandomName();
-        $country = $this->generateRandomCountry();
-        $service = $this->generateRandomService();
-        $info = $this->generateRandomInfo();
-        $url = $this->generateRandomUrl();
+        $name = $this->input('name'); // 将 'name' 字段作为 name
+        $country = $request->input('name'); // 将 'name' 字段作为 country
+        $service = $request->input('service'); // 将 'service' 字段作为 service
+        $info = $request->input('info'); // 将 'info' 字段作为 info
+        $url = $request->input('url'); // 将 'url' 字段作为 url
         $random_datetime = Carbon::now()->subMinutes(rand(1, 55));
 
         $store = Store::create([
@@ -56,8 +56,9 @@ class StoresController extends Controller
             'updated_at' => $random_datetime,
         ]);
 
-        return redirect('stores'); // 返回到 stores 路由
+        return redirect('stores');
     }
+
 
 
     /**
