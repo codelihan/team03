@@ -21,17 +21,8 @@ class Car extends Model
         'created_at',
         'updated_at'
     ];
-<<<<<<< HEAD:app/Models/car.php
-    public function store()
-    {
-        return $this->belongsTo('App\Models\store','store','name');
-
-    }
-
-=======
 
     public function store(){
         return $this->belongsTo('App\Models\Store','sid','id');
     }
->>>>>>> D1094181709:app/Models/Car.php
 }
