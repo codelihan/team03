@@ -28,7 +28,7 @@
                 <td><a href="{{ route('stores.show', $store['id']) }}">顯示</a></td>
                 <td><a href="{{ route('stores.edit', $store['id']) }}">修改</a></td>
                 <td>
-                    <form action="{{ route('stores.destroy', $store['id']) }}" method="POST">
+                    <form action="{{ url('/stores/delete', ['id' => $store->id]) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button>刪除</button>

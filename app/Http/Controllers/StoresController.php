@@ -51,6 +51,10 @@ class StoresController extends Controller
     {
         $store=store::findOrFail($id);
         $cars=$store->cars;
+<<<<<<< HEAD
+=======
+
+>>>>>>> D1094181709
         return view('stores.show',['store'=>$store,'cars'=>$cars]);
     }
 
@@ -85,6 +89,8 @@ class StoresController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $store=store::findOrFail($id);
+        $store->delete();
+        return redirect('stores');
     }
 }

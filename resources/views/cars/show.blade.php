@@ -7,7 +7,11 @@
 
     <div>
         <p><strong>編號:</strong> {{ $car['id'] }}</p>
+<<<<<<< HEAD
         <p><strong>車商:</strong>{{ $car->store->name }}</p>
+=======
+        <p><strong>車商:</strong> {{ $car->store->name }}</p>
+>>>>>>> D1094181709
         <p><strong>型號:</strong> {{ $car['model'] }}</p>
         <p><strong>騎乘噪音值:</strong> {{ $car['riding_noise'] }}</p>
         <p><strong>怠速噪音值:</strong> {{ $car['idle_noise'] }}</p>
@@ -20,9 +24,13 @@
         <a href="{{ route('cars.index') }}">返回</a>
         <a href="{{ route('cars.edit', ['id' => $car['id']]) }}">修改</a>
         <form action="{{ route('cars.destroy', $car['id']) }}" method="POST">
+            //刪除功能
             @csrf
             @method('DELETE')
             <button>刪除</button>
         </form>
     </div>
+
+
+
 @endsection
