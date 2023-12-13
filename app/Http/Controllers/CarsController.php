@@ -30,7 +30,7 @@ class CarsController extends Controller
      */
     public function create()
     {
-        $cars = Car::orderBy('id', 'asc')->pluck('cars.name', 'cars.id');
+        $cars = Car::orderBy('cars.id', 'asc')->pluck('cars.name', 'cars.id');
         return view('cars.create',['cars'=>$cars,'carSelected'=>null]);
     }
 
