@@ -39,7 +39,7 @@ class StoresController extends Controller
 
     public function store(Request $request)
     {
-        $name = $this->input('name'); // 将 'name' 字段作为 name
+        $name = $request->input('name'); // 将 'name' 字段作为 name
         $country = $request->input('name'); // 将 'name' 字段作为 country
         $service = $request->input('service'); // 将 'service' 字段作为 service
         $info = $request->input('info'); // 将 'info' 字段作为 info
