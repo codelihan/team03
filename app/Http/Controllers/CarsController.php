@@ -65,7 +65,8 @@ class CarsController extends Controller
      */
     public function edit($id)
     {
-        return car::findOrFail($id)->toArray();
+        $car=car::findOrFail($id);
+        return view('cars.edit',['car'=>$car]);
     }
 
     /**

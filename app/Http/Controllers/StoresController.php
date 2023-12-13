@@ -63,7 +63,8 @@ class StoresController extends Controller
      */
     public function edit($id)
     {
-        return store::findOrFail($id)->toArray();
+        $store=store::findOrFail($id);
+        return view('stores.edit',['store'=>$store]);
     }
 
     /**
