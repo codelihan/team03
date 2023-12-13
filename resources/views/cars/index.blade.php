@@ -22,7 +22,7 @@
         @foreach ($cars as $car)
             <tr>
                 <td>{{ $car['id'] }}</td>
-                <td>{{ $car->store->name }}</td>
+                <td>{{ $car->store->name }}</td> <!-- 這裡是新增的 -->
                 <td>{{ $car['model'] }}</td>
                 <td>{{ $car['riding_noise'] }}</td>
                 <td>{{ $car['idle_noise'] }}</td>
