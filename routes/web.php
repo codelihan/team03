@@ -28,7 +28,7 @@ Route::get('/cars/{id}', [CarsController::class, 'show'])->where('id', '[0-9]+')
 Route::get('/cars/{id}/edit', [CarsController::class, 'edit'])->where('id', '[0-9]+')->name('cars.edit');
 
 // 修改車輛
-Route::put('/cars/update/{id}', [CarsController::class, 'update'])->where('id', '[0-9]+')->name('cars.update');
+Route::patch('/cars/update/{id}', [CarsController::class, 'update'])->where('id', '[0-9]+')->name('cars.update');
 
 // 刪除單一車輛資料
 Route::delete('/cars/{id}', [CarsController::class, 'destroy'])->where('id', '[0-9]+')->name('cars.destroy');
@@ -46,7 +46,7 @@ Route::get('/stores/{id}', [StoresController::class, 'show'])->where('id', '[0-9
 Route::get('/stores/{id}/edit', [StoresController::class, 'edit'])->where('id', '[0-9]+')->name('stores.edit');
 
 // 修改商店
-Route::put('/stores/update/{id}', [StoresController::class, 'update'])->where('id', '[0-9]+')->name('stores.update');
+Route::patch('/stores/update/{id}', [StoresController::class, 'update'])->where('id', '[0-9]+')->name('stores.update');
 
 // 刪除單一商店及其車輛資料
 Route::delete('/stores/delete/{id}', [StoresController::class, 'destroy'])->where('id', '[0-9]+')->name('stores.destroy');
