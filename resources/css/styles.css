@@ -1,0 +1,8 @@
+/* resources/css/styles.css */
+
+body {
+    background-color: #f2f2f2; /* 背景顏色 */
+    background-image: url('/public/R.jpg');
+    background-size: cover; /* 確保背景圖片覆蓋整個畫面 */
+    background-repeat: no-repeat; /* 防止背景圖片重複 */
+}
