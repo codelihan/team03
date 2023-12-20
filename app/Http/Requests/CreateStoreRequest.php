@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateCarRequest extends FormRequest
+class CreateStoreRequest extends FormRequest
 {
     /**
      * 確定用戶是否有權發出此請求。
