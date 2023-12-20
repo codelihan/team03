@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateCarRequest;
 use App\Models\Store;
 
 class CarsController extends Controller
@@ -40,7 +40,7 @@ class CarsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCarRequest $request)
     {
         $sid = $request->input('sid');
         $model = $request->input('model');
@@ -97,7 +97,7 @@ class CarsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateCarRequest $request, $id)
     {
         $car = Car::findOrFail($id);
 

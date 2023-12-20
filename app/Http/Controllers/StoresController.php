@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateStoreRequest;
 use App\Models\Car;
 use App\Models\Store;
 
@@ -37,7 +37,7 @@ class StoresController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function store(Request $request)
+    public function store(CreateStoreRequest $request)
     {
         $name = $request->input('name'); // 将 'name' 字段作为 name
         $country = $request->input('name'); // 将 'name' 字段作为 country
@@ -93,8 +93,11 @@ class StoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateStoreRequest $request, $id)
     {
+        $store=store::findOrFail($id);
+        $store->update($request->all());
+        return redirect('stores/'.$store->id)->with('message','Store updated successfully!'); // 返回到 cars 路由
         //
     }
 
