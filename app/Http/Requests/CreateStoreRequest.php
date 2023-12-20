@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateCarRequest extends FormRequest
+class CreateStoreRequest extends FormRequest
 {
     /**
      * 確定用戶是否有權發出此請求。
@@ -37,7 +37,7 @@ class CreateCarRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function messagess()
+    public function messages()
     {
         return [
             'name.required' => '請輸入車商名稱',

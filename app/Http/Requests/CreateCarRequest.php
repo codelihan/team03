@@ -33,6 +33,7 @@ class CreateCarRequest extends FormRequest
         'displacement' => 'required|numeric|min:0|max:6300',
         ];
     }
+
     public function messages()
     {
         return [
@@ -62,4 +63,16 @@ class CreateCarRequest extends FormRequest
             'displacement.max' => '排氣量必須小於6300',
         ];
     }
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            $ridingNoise = $this->input('riding_noise');
+            $idleNoise = $this->input('idle_noise');
+
+            if ($ridingNoise !== null && $idleNoise !== null && $idleNoise > $ridingNoise) {
+                $validator->errors()->add('idle_noise', '怠速噪音不得大於騎乘噪音');
+            }
+        });
+    }
+
 }

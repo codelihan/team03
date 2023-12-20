@@ -16,7 +16,7 @@ class Car extends Model
         'riding_noise',
         'idle_noise',
         'max_power',
-        'mas_rpm',
+        'max_rpm',
         'displacement',
         'created_at',
         'updated_at'
