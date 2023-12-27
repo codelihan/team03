@@ -46,4 +46,5 @@
             </tr>
         @endforeach
     </table>
+    {{ $cars->withQueryString()->links() }}
 @endsection
