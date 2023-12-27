@@ -9,7 +9,7 @@ class Car extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'id',
         'sid',
         'model',
@@ -22,7 +22,26 @@ class Car extends Model
         'updated_at'
     ];
 
-    public function store(){
-        return $this->belongsTo('App\Models\Store','sid','id');
+    public function store()
+    {
+        return $this->belongsTo('App\Models\Store', 'sid', 'id');
+    }
+
+    // 選擇白牌車輛(displacement<250)
+    public function writeLicene($query)
+    {
+        return $query->where('displacement', '<', 250)->orderBy('displacement', 'asc');
+    }
+
+    // 選擇黃牌車輛(displacement>250<550)
+    public function yellowLicene($query)
+    {
+        return $query->where('displacement', '>', 250)->where('displacement', '<', 550)->orderBy('displacement', 'asc');
+    }
+
+    // 選擇紅牌車輛(displacement>550)
+    public function redLicene($query)
+    {
+        return $query->where('displacement', '>', 550)->orderBy('displacement', 'asc');
     }
 }
