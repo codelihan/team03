@@ -8,6 +8,17 @@
         <a href="{{ route('cars.white_licenceplate') }} ">白牌車款</a>
         <a href="{{ route('cars.yellow_licenceplate') }} ">黃牌車款</a>
         <a href="{{ route('cars.red_licenceplate') }} ">紅牌車款</a>
+        <select id="storeSelect">
+    @foreach ($stores as $store)
+        <option value="{{ $store->id }}" {{ $store->id == $selectedStore ? 'selected' : '' }}>{{ $store->name }}</option>
+    @endforeach
+</select>
+
+<script>
+document.getElementById('storeSelect').addEventListener('change', function() {
+    window.location.href = '?store=' + this.value;
+});
+</script>
     </div>
     <h1>所有車款</h1>
     <table>

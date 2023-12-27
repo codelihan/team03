@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Car;
 use App\Http\Requests\CreateCarRequest;
 use App\Models\Store;
+use Illuminate\Http\Request;
 
 class CarsController extends Controller
 {
@@ -15,12 +16,16 @@ class CarsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // 获取所有汽车数据并返回数组形式
-        $c=car::paginate(25);
-
-        return view('cars.index')->with('cars',$c);
+        $stores = Store::all();
+        $store_id = $request->query('store');
+        if ($store_id) {
+            $cars = Car::where('sid', $store_id)->paginate(25);
+        } else {
+            $cars = Car::paginate(25);
+        }
+        return view('cars.index', ['cars' => $cars, 'stores' => $stores, 'selectedStore' => $store_id]);
     }
 
     /**
