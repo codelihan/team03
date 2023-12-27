@@ -18,7 +18,8 @@
         }
 
         body {
-            margin: 0
+            margin: 0;
+            color: white;  // 加入這行
         }
 
         a {
