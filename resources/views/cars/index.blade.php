@@ -9,10 +9,11 @@
         <a href="{{ route('cars.yellow_licenceplate') }} ">黃牌車款</a>
         <a href="{{ route('cars.red_licenceplate') }} ">紅牌車款</a>
         <select id="storeSelect">
-    @foreach ($stores as $store)
-        <option value="{{ $store->id }}" {{ $store->id == $selectedStore ? 'selected' : '' }}>{{ $store->name }}</option>
-    @endforeach
-</select>
+            <option value="" {{ empty($selectedStore) ? 'selected' : '' }}>所有車款</option>
+            @foreach ($stores as $store)
+            <option value="{{ $store->id }}" {{ $store->id == $selectedStore ? 'selected' : '' }}>{{ $store->name }}</option>
+            @endforeach
+        </select>
 
 <script>
 document.getElementById('storeSelect').addEventListener('change', function() {
