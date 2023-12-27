@@ -37,7 +37,7 @@ class CreateStoreRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function messagess()
+    public function messages()
     {
         return [
             'name.required' => '請輸入車商名稱',

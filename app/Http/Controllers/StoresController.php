@@ -7,7 +7,6 @@ use App\Models\Car;
 use App\Models\Store;
 use Carbon\Carbon;
 
-
 class StoresController extends Controller
 {
     /**
