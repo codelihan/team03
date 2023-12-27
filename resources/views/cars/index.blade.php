@@ -5,9 +5,12 @@
 @section('bike_contents')
     <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
         <a href="{{ route('cars.create') }} ">新增車款</a>
+        <a href="{{ route('cars.white_licenceplate') }} ">白牌車款</a>
+        <a href="{{ route('cars.yellow_licenceplate') }} ">黃牌車款</a>
+        <a href="{{ route('cars.red_licenceplate') }} ">紅牌車款</a>
     </div>
     <h1>所有車款</h1>
-    <table>
+    <table> 
         <tr>
             <th>編號</th>
             <th>車商</th>

@@ -25,9 +25,6 @@
             <th>最大馬力</th>
             <th>最大動力轉速</th>
             <th>排氣量</th>
-            <th>操作1</th>
-            <th>操作2</th>
-            <th>操作3</th>
         </tr>
         @foreach ($cars as $car)
             <tr>
