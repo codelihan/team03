@@ -129,20 +129,21 @@ class CarsController extends Controller
 
     public function white_licenceplate()
     {
-        $c = Car::whiteLicene()->get();
+        $c = Car::whiteLicene()->paginate(25); // 使用 paginate() 方法进行分页
         return view('cars.index')->with('cars', $c);
     }
 
     public function yellow_licenceplate()
     {
-        $c = Car::yellowLicene()->get();
+        $c = Car::yellowLicene()->paginate(25); // 使用 paginate() 方法进行分页
         return view('cars.index')->with('cars', $c);
     }
 
     public function red_licenceplate()
     {
-        $c = Car::redLicene()->get();
+        $c = Car::redLicene()->paginate(25); // 使用 paginate() 方法进行分页
         return view('cars.index')->with('cars', $c);
     }
+
 
 }
