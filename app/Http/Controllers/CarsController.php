@@ -127,25 +127,22 @@ class CarsController extends Controller
         return redirect('cars');
     }
 
-    // 選擇白牌車輛(displacement<250)
-    public function write_licenseplate()
+    public function white_licenceplate()
     {
-        $c=car::writeLicene()->get();
-        return view('cars.index')->with('cars',$c);
+        $c = Car::whiteLicene()->get();
+        return view('cars.index')->with('cars', $c);
     }
 
-    // 選擇黃牌車輛(displacement>250<550)
-    public function yellow_licenseplate()
+    public function yellow_licenceplate()
     {
-        $c=car::yellowLicene()->get();
-        return view('cars.index')->with('cars',$c);
+        $c = Car::yellowLicene()->get();
+        return view('cars.index')->with('cars', $c);
     }
 
-    // 選擇紅牌車輛(displacement>550)
-    public function red_licenseplate()
+    public function red_licenceplate()
     {
-        $c=car::redLicene()->get();
-        return view('cars.index')->with('cars',$c);
+        $c = Car::redLicene()->get();
+        return view('cars.index')->with('cars', $c);
     }
 
 }

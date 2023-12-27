@@ -27,21 +27,18 @@ class Car extends Model
         return $this->belongsTo('App\Models\Store', 'sid', 'id');
     }
 
-    // 選擇白牌車輛(displacement<250)
-    public function writeLicene($query)
+    public function scopeWhiteLicene($query)
     {
-        return $query->where('displacement', '<', 250)->orderBy('displacement', 'asc');
+        return $query->where('displacement', '<', 250);
     }
 
-    // 選擇黃牌車輛(displacement>250<550)
-    public function yellowLicene($query)
+    public function scopeYellowLicene($query)
     {
-        return $query->where('displacement', '>', 250)->where('displacement', '<', 550)->orderBy('displacement', 'asc');
+        return $query->whereBetween('displacement', [250, 550]);
     }
 
-    // 選擇紅牌車輛(displacement>550)
-    public function redLicene($query)
+    public function scopeRedLicene($query)
     {
-        return $query->where('displacement', '>', 550)->orderBy('displacement', 'asc');
+        return $query->where('displacement', '>', 550);
     }
 }

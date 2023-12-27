@@ -10,7 +10,7 @@
         <a href="{{ route('cars.red_licenceplate') }} ">紅牌車款</a>
     </div>
     <h1>所有車款</h1>
-    <table> 
+    <table>
         <tr>
             <th>編號</th>
             <th>車商</th>
