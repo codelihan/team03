@@ -132,22 +132,40 @@ class CarsController extends Controller
         return redirect('cars');
     }
 
-    public function white_licenceplate()
+    public function white_licenceplate(Request $request)
     {
-        $c = Car::whiteLicene()->paginate(25); // 使用 paginate() 方法进行分页
-        return view('cars.index')->with('cars', $c);
+        $stores = Store::all();
+        $store_id = $request->query('store');
+        if ($store_id) {
+            $c = Car::whiteLicene()->where('sid', $store_id)->paginate(25);
+        } else {
+            $c = Car::whiteLicene()->paginate(25);
+        }
+        return view('cars.index', ['cars' => $c, 'stores' => $stores, 'selectedStore' => $store_id]);
     }
-
-    public function yellow_licenceplate()
+    
+    public function yellow_licenceplate(Request $request)
     {
-        $c = Car::yellowLicene()->paginate(25); // 使用 paginate() 方法进行分页
-        return view('cars.index')->with('cars', $c);
+        $stores = Store::all();
+        $store_id = $request->query('store');
+        if ($store_id) {
+            $c = Car::yellowLicene()->where('sid', $store_id)->paginate(25);
+        } else {
+            $c = Car::yellowLicene()->paginate(25);
+        }
+        return view('cars.index', ['cars' => $c, 'stores' => $stores, 'selectedStore' => $store_id]);
     }
-
-    public function red_licenceplate()
+    
+    public function red_licenceplate(Request $request)
     {
-        $c = Car::redLicene()->paginate(25); // 使用 paginate() 方法进行分页
-        return view('cars.index')->with('cars', $c);
+        $stores = Store::all();
+        $store_id = $request->query('store');
+        if ($store_id) {
+            $c = Car::redLicene()->where('sid', $store_id)->paginate(25);
+        } else {
+            $c = Car::redLicene()->paginate(25);
+        }
+        return view('cars.index', ['cars' => $c, 'stores' => $stores, 'selectedStore' => $store_id]);
     }
 
 
