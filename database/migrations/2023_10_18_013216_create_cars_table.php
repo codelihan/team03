@@ -36,4 +36,4 @@ class CreateCarsTable extends Migration
     {
         Schema::dropIfExists('cars');
     }
-};
+}

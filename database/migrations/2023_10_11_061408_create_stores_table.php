@@ -33,4 +33,4 @@ class CreateStoresTable extends Migration
     {
         Schema::dropIfExists('stores');
     }
-};
+}
