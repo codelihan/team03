@@ -41,6 +41,7 @@
     </table>
     <div>
         <a href="{{ route('stores.index') }}">返回</a>
+    @can('admin')
         <a href="{{ route('stores.edit', ['id' => $store['id']]) }}">修改</a>
         <td>
             <form action="{{ url('/stores/delete', ['id' => $store->id]) }}" method="POST">
@@ -50,4 +51,8 @@
             </form>
         </td>
     </div>
+    @endcan
+    @can('manager')
+    <a href="{{ route('stores.edit', ['id' => $store['id']]) }}">修改</a>
+    @endcan
 @endsection

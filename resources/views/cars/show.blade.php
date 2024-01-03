@@ -18,12 +18,17 @@
 
     <div>
         <a href="{{ route('cars.index') }}">返回</a>
+        @can('admin')
         <a href="{{ route('cars.edit', ['id' => $car['id']]) }}">修改</a>
         <form action="{{ route('cars.destroy', $car['id']) }}" method="POST">
             @csrf
             @method('DELETE')
             <button>刪除</button>
         </form>
+        @endcan
+        @can('manager')
+        <a href="{{ route('cars.edit', ['id' => $car['id']]) }}">修改</a>
+        @endcan
     </div>
 
 

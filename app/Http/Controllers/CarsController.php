@@ -89,6 +89,7 @@ class CarsController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
         $car = Car::findOrFail($id);
         $stores = Store::orderBy('stores.id', 'asc')->pluck('stores.name', 'stores.id');
         $selected_tags = $car->store->id;
