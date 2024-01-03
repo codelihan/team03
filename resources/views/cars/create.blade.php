@@ -3,6 +3,7 @@
 @section('title', '建立車種表單')
 
 @section('bike_contents')
+    @include('message.list')
     {!! Form::open(['url' => 'cars/store']) !!}
     @include('cars.form', ['submitButtonText'=>"新增車種資料"])
     {!! Form::close() !!}

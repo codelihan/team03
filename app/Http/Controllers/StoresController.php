@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateStoreRequest;
 use App\Models\Car;
 use App\Models\Store;
-use Illuminate\Http\Response;
+use Carbon\Carbon;
 
 class StoresController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     // 获取所有商店数据并返回数组形式
     public function index()
@@ -24,7 +24,7 @@ class StoresController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -34,11 +34,11 @@ class StoresController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
 
-    public function store(Request $request)
+    public function store(CreateStoreRequest $request)
     {
         $name = $request->input('name'); // 将 'name' 字段作为 name
         $country = $request->input('name'); // 将 'name' 字段作为 country
@@ -66,7 +66,7 @@ class StoresController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
@@ -79,7 +79,7 @@ class StoresController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -90,12 +90,15 @@ class StoresController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateStoreRequest $request, $id)
     {
+        $store=store::findOrFail($id);
+        $store->update($request->all());
+        return redirect('stores/'.$store->id)->with('message','Store updated successfully!'); // 返回到 cars 路由
         //
     }
 
@@ -103,7 +106,7 @@ class StoresController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateCarRequest;
 use App\Models\Store;
-use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 class CarsController extends Controller
 {
@@ -14,20 +14,24 @@ class CarsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // 获取所有汽车数据并返回数组形式
-        $c=car::all();
-
-        return view('cars.index')->with('cars',$c);
+        $stores = Store::all();
+        $store_id = $request->query('store');
+        if ($store_id) {
+            $cars = Car::where('sid', $store_id)->paginate(25);
+        } else {
+            $cars = Car::paginate(25);
+        }
+        return view('cars.index', ['cars' => $cars, 'stores' => $stores, 'selectedStore' => $store_id]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -38,10 +42,10 @@ class CarsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCarRequest $request)
     {
         $sid = $request->input('sid');
         $model = $request->input('model');
@@ -68,7 +72,7 @@ class CarsController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
@@ -81,7 +85,7 @@ class CarsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -94,11 +98,11 @@ class CarsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateCarRequest $request, $id)
     {
         $car = Car::findOrFail($id);
 
@@ -119,7 +123,7 @@ class CarsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
@@ -127,5 +131,42 @@ class CarsController extends Controller
         $car->delete();
         return redirect('cars');
     }
+
+    public function white_licenceplate(Request $request)
+    {
+        $stores = Store::all();
+        $store_id = $request->query('store');
+        if ($store_id) {
+            $c = Car::whiteLicene()->where('sid', $store_id)->paginate(25);
+        } else {
+            $c = Car::whiteLicene()->paginate(25);
+        }
+        return view('cars.index', ['cars' => $c, 'stores' => $stores, 'selectedStore' => $store_id]);
+    }
+    
+    public function yellow_licenceplate(Request $request)
+    {
+        $stores = Store::all();
+        $store_id = $request->query('store');
+        if ($store_id) {
+            $c = Car::yellowLicene()->where('sid', $store_id)->paginate(25);
+        } else {
+            $c = Car::yellowLicene()->paginate(25);
+        }
+        return view('cars.index', ['cars' => $c, 'stores' => $stores, 'selectedStore' => $store_id]);
+    }
+    
+    public function red_licenceplate(Request $request)
+    {
+        $stores = Store::all();
+        $store_id = $request->query('store');
+        if ($store_id) {
+            $c = Car::redLicene()->where('sid', $store_id)->paginate(25);
+        } else {
+            $c = Car::redLicene()->paginate(25);
+        }
+        return view('cars.index', ['cars' => $c, 'stores' => $stores, 'selectedStore' => $store_id]);
+    }
+
 
 }
