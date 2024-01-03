@@ -38,21 +38,18 @@
                 <td>{{ $car['displacement'] }}</td>
             </tr>
         @endforeach
-    </table>
+        </table>
     <div>
         <a href="{{ route('stores.index') }}">返回</a>
+    @can('manerger')
+        <a href="{{ route('stores.edit', ['id' => $store->id]) }}">修改</a>
+    @endcan
     @can('admin')
-        <a href="{{ route('stores.edit', ['id' => $store['id']]) }}">修改</a>
-        <td>
-            <form action="{{ url('/stores/delete', ['id' => $store->id]) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button>刪除</button>
-            </form>
-        </td>
+        <form action="{{ url('/stores/delete', ['id' => $store->id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button>刪除</button>
+        </form>
+    @endcan
     </div>
-    @endcan
-    @can('manager')
-    <a href="{{ route('stores.edit', ['id' => $store['id']]) }}">修改</a>
-    @endcan
 @endsection

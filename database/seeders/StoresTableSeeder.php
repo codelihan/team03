@@ -25,24 +25,23 @@ class StoresTableSeeder extends Seeder
     }
 
     public function generateRandomName() {
-        $names = array(
-            'YAMAHA',
-            'HONDA',
-            'SYM',
-            'KYMCO',
-            'CF MOTO',
+        static $names = array(
+            'Yamaha',
+            'Honda',
+            'Sym',
+            'Kymco',
+            'CF Moto',
             'Ducati',
-            'suzuki',
+            'Suzuki',
             'PGO',
             'AEON',
-            'GOGORO',
-            'aprilia',
+            'Gogoro',
+            'Aprilia',
             'BMW',
-            'kawasaki',
-            'KTM',
-            'Triumph'
         );
-        return $names[rand(0, count($names) - 1)];
+        shuffle($names);
+    
+        return array_pop($names);
     }
 
     public function generateRandomCountry() {
@@ -86,14 +85,19 @@ class StoresTableSeeder extends Seeder
     }
 
     public function generateRandomUrl() {
-        $length = 20; // 你可以根据需要来设置随机字符串的长度
-        $randomUrl = $this->generateRandomString($length);
+        $length = 10; // 你可以根據需要來設定隨機字串的長度
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomChar = chr(rand(97, 122)); // ASCII 97-122 是小寫字母 a-z
+            $randomString .= $randomChar;
+        }
+        $randomUrl = 'http://www.' . $randomString . '.com';
         return $randomUrl;
     }
 
     public function run()
     {
-        for ($i = 0; $i < 15; $i++) {
+        for ($i = 0; $i < 12; $i++) {
             $name = $this->generateRandomName();
             $country = $this->generateRandomCountry();
             $service = $this->generateRandomService();

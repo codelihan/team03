@@ -19,24 +19,14 @@ class CarsTableSeeder extends Seeder
 {
     $usedModels = []; // 用來追蹤已經使用過的型號
 
-    $models = [
-        'CBR1000RR', 'YZF-R1', 'Ninja ZX-10R',
-        'GSX-R1000', 'Panigale V4', 'S1000RR',
-        'Triumph Daytona 675', 'Aprilia RSV4', 'MV Agusta F4',
-        '1290 Super Duke R', 'Sportster', 'Scout',
-        'Octane', 'V7', 'Classic 500',
-        'Agility', 'Primavera', 'MP3', 'Wolf',
-        'GT250R', 'Versys-X 300', 'V-Strom 650',
-        'CRF250L', '390 Duke', 'WR250R',
-        'G310GS', 'Bonneville T100', 'Scrambler',
-        'Z650', 'SV650', 'MT-07',
-        'CB500F', '690 Duke', 'Street 500',
-        'Scout Sixty', 'Gunner', 'V9',
-        'Z125 Pro', 'Ruckus', 'Zuma',
-        'GTS', 'Fly', 'Jet', 'GD250R',
-        '1290 Super Adventure', 'V-Strom 1000', 'R1250GS',
-        'Tiger 800', 'Multistrada 950'
-    ];
+    $models = [];
+
+    for ($i = 0; $i < 50; $i++) {
+        $randomLetter1 = chr(rand(65, 90)); // ASCII 65-90 是大寫字母 A-Z
+        $randomLetter2 = chr(rand(65, 90));
+        $randomNumber = rand(10, 99);
+        $models[] = $randomLetter1 . $randomLetter2 . '-' . $randomNumber;
+    }
 
     while (!empty($models)) {
         $randomBike = $this->generateRandomBike($models, $usedModels);
@@ -44,7 +34,7 @@ class CarsTableSeeder extends Seeder
         $updatedAt = $createdAt; // 新記錄的更新日期時間通常等於創建日期時間
 
         DB::table('cars')->insert([
-            'sid' => rand(1, 15),
+            'sid' => rand(1, 12),
             'model' => $randomBike['model'],
             'riding_noise' => $randomBike['riding_noise'],
             'idle_noise' => $randomBike['idle_noise'],
@@ -68,11 +58,11 @@ public function generateRandomBike(&$models, &$usedModels)
 
     $model = $models[array_rand($models)]; // 隨機選擇一個型號
 
-    $riding_noise = rand(40, 60); // 隨機生成騎乘噪音
-    $idle_noise = rand(15, 30); // 隨機生成怠速噪音
-    $max_power = rand(10, 20); // 隨機生成最大動力
-    $max_rpm = rand(12000, 16000); // 隨機生成最大轉速
-    $displacement = rand(100, 200); // 隨機生成排氣量
+    $riding_noise = rand(90, 110); // 隨機生成騎乘噪音
+    $idle_noise = rand(60, 90); // 隨機生成怠速噪音
+    $max_power = rand(10, 200); // 隨機生成最大動力
+    $max_rpm = rand(7000, 16000); // 隨機生成最大轉速
+    $displacement = rand(100, 1200); // 隨機生成排氣量
 
     $bikeInfo = [
         'model' => $model,
