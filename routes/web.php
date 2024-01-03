@@ -69,3 +69,11 @@ Route::get('/stores/create', [StoresController::class, 'create'])->name('stores.
 
 // 儲存新商店資料
 Route::post('/stores/store', [StoresController::class, 'store'])->name('stores.store');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
