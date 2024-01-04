@@ -7,8 +7,6 @@
     @can('admin')
     <a href="{{ route('stores.create') }} ">新增車商</a>
     @endcan
-    <a href="{{ route('stores.index') }} ">所有車商</a>
-    <!-- 如果有其他類別或篩選方式，也可以在這裡加入 -->
 </div>
 <h1>所有車商</h1>
 <table>
